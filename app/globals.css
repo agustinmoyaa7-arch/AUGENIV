@@ -1,0 +1,282 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------- AUGENIV BRAND TOKENS ---------- */
+/* Light mode (default) */
+:root {
+  /* Brand */
+  --brand-bg-dark: #383939;
+  --brand-deep-crimson: #39000a;
+  --brand-crimson: #860b1f;
+  --brand-silver: #d2d0d0;
+  --brand-gray: #818682;
+
+  /* Surface tokens (light) */
+  --background: #f5f5f5;
+  --foreground: #383939;
+  --card: #ffffff;
+  --card-foreground: #383939;
+  --popover: #ffffff;
+  --popover-foreground: #383939;
+  --primary: #860b1f;
+  --primary-foreground: #ffffff;
+  --secondary: #ececec;
+  --secondary-foreground: #383939;
+  --muted: #ececec;
+  --muted-foreground: #6b6e6c;
+  --accent: #39000a;
+  --accent-foreground: #ffffff;
+  --destructive: #860b1f;
+  --destructive-foreground: #ffffff;
+  --border: rgba(56, 57, 57, 0.12);
+  --input: rgba(56, 57, 57, 0.12);
+  --ring: #860b1f;
+
+  --radius: 0.75rem;
+
+  /* Glass nav (light) */
+  --nav-bg: rgba(245, 245, 245, 0.75);
+  --nav-border: rgba(134, 11, 31, 0.4);
+
+  /* Chart palette */
+  --chart-1: #860b1f;
+  --chart-2: #39000a;
+  --chart-3: #383939;
+  --chart-4: #818682;
+  --chart-5: #d2d0d0;
+
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #383939;
+  --sidebar-primary: #860b1f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ececec;
+  --sidebar-accent-foreground: #383939;
+  --sidebar-border: rgba(56, 57, 57, 0.12);
+  --sidebar-ring: #860b1f;
+}
+
+/* Dark mode (default look-and-feel) */
+.dark {
+  --background: #1a1212;
+  --foreground: #f2efef;
+  --card: #221717;
+  --card-foreground: #f2efef;
+  --popover: #221717;
+  --popover-foreground: #f2efef;
+  --primary: #860b1f;
+  --primary-foreground: #ffffff;
+  --secondary: #2a1d1d;
+  --secondary-foreground: #f2efef;
+  --muted: #2a1d1d;
+  --muted-foreground: #b6b3b3;
+  --accent: #39000a;
+  --accent-foreground: #ffffff;
+  --destructive: #860b1f;
+  --destructive-foreground: #ffffff;
+  --border: rgba(210, 208, 208, 0.1);
+  --input: rgba(210, 208, 208, 0.1);
+  --ring: #860b1f;
+
+  /* Glass nav (dark) */
+  --nav-bg: rgba(30, 10, 10, 0.6);
+  --nav-border: rgba(134, 11, 31, 0.3);
+
+  --sidebar: #221717;
+  --sidebar-foreground: #f2efef;
+  --sidebar-primary: #860b1f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2a1d1d;
+  --sidebar-accent-foreground: #f2efef;
+  --sidebar-border: rgba(210, 208, 208, 0.1);
+  --sidebar-ring: #860b1f;
+}
+
+@theme inline {
+  --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+  --font-display: var(--font-bebas), 'Bebas Neue', 'Oswald', system-ui, sans-serif;
+  --font-serif: var(--font-lora), 'Lora', Georgia, 'Times New Roman', serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-brand-crimson: var(--brand-crimson);
+  --color-brand-deep: var(--brand-deep-crimson);
+  --color-brand-silver: var(--brand-silver);
+  --color-brand-gray: var(--brand-gray);
+  --color-brand-bg: var(--brand-bg-dark);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    /* Account for the floating bottom nav so anchor links never land under it */
+    scroll-padding-bottom: 140px;
+  }
+  html,
+  body {
+    @apply bg-background text-foreground;
+  }
+  /* Force GPU compositing on every fixed/floating element so iOS doesn't drop frames during scroll */
+  [data-floating='true'] {
+    transform: translateZ(0);
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  /* Bebas Neue is a single-weight condensed display face.
+     Brand spec mandates 0.05em tracking on every display heading,
+     so we override any Tailwind tracking-* utility that may be applied. */
+  .font-display {
+    letter-spacing: 0.05em !important;
+  }
+  /* Lora reads warmer with a hint of letter-spacing in body copy */
+  .font-serif {
+    letter-spacing: 0.005em;
+  }
+  ::selection {
+    background: var(--brand-crimson);
+    color: #fff;
+  }
+}
+
+/* ---------- UTILITIES ---------- */
+@layer utilities {
+  .glass-nav {
+    background: var(--nav-bg);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border-top: 1px solid var(--nav-border);
+  }
+
+  .glass-card {
+    background: color-mix(in oklab, var(--card) 70%, transparent);
+    backdrop-filter: blur(14px) saturate(130%);
+    -webkit-backdrop-filter: blur(14px) saturate(130%);
+    border: 1px solid var(--border);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.6) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+
+  .crimson-glow {
+    box-shadow: 0 0 0 1px rgba(134, 11, 31, 0.45),
+      0 10px 40px -10px rgba(134, 11, 31, 0.55);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    scrollbar-width: none;
+  }
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes augeniv-progress {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes augeniv-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes augeniv-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes augeniv-pulse-ring {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(134, 11, 31, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(134, 11, 31, 0);
+  }
+}
+
+.animate-progress {
+  animation: augeniv-progress 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.animate-fade-up {
+  animation: augeniv-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.animate-fade-in {
+  animation: augeniv-fade-in 0.6s ease forwards;
+}
+.animate-pulse-ring {
+  animation: augeniv-pulse-ring 2.4s ease-in-out infinite;
+}
