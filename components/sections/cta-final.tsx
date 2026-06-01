@@ -1,5 +1,7 @@
+"use client"
+
 import { Dumbbell } from "lucide-react"
-import { buildWhatsAppLink } from "../whatsapp-button"
+import { buildWhatsAppLink } from "@/lib/whatsapp-utils"
 import Link from "next/link"
 
 export function CtaFinal() {

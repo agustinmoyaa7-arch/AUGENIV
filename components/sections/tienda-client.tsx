@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { Apple, Dumbbell, Video, ArrowRight, ShoppingBag, Gift, X, ChevronLeft, ChevronRight} from "lucide-react"
-import { buildWhatsAppLink } from "../whatsapp-button"
+import { buildWhatsAppLink } from "@/lib/whatsapp-utils"
 
 type Category = "Todos" | "Nutrición" | "Entrenamiento" | "Sesiones 1 a 1" | "Gratis"
 
@@ -172,8 +172,22 @@ export function TiendaClient() {
           return (
             <article
               key={p.id}
-              className="group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--brand-crimson)]/60"
+              className={`group relative flex flex-col overflow-hidden rounded-3xl border transition-all duration-300 ${
+                p.category === "Nutrición"
+                  ? "border-border/50 bg-card/50 opacity-75"
+                  : "border-border bg-card hover:-translate-y-1 hover:border-[color:var(--brand-crimson)]/60"
+              }`}
             >
+              {/* Coming Soon Overlay for Nutrition */}
+              {p.category === "Nutrición" && (
+                <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 backdrop-blur-sm rounded-3xl">
+                  <div className="text-center">
+                    <p className="text-xs tracking-[0.3em] text-white/80 uppercase mb-2">Próximamente</p>
+                    <p className="font-display text-2xl font-black text-white">EN BREVE</p>
+                  </div>
+                </div>
+              )}
+
               {/* Image area */}
               <div className="relative h-56 overflow-hidden bg-[linear-gradient(140deg,#39000A_0%,#1a1212_55%,#221717_100%)]">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(134,11,31,0.35),transparent_60%)]" />
@@ -224,9 +238,14 @@ export function TiendaClient() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Comprar ${p.name} por WhatsApp`}
-                      className="group/btn inline-flex items-center gap-2 rounded-full bg-[color:var(--brand-crimson)] px-4 py-2.5 font-sans text-[10px] font-semibold tracking-[0.25em] uppercase text-white transition hover:brightness-110"
+                      className={`group/btn inline-flex items-center gap-2 rounded-full px-4 py-2.5 font-sans text-[10px] font-semibold tracking-[0.25em] uppercase transition ${
+                        p.category === "Nutrición"
+                          ? "bg-muted text-muted-foreground cursor-not-allowed opacity-50"
+                          : "bg-[color:var(--brand-crimson)] text-white hover:brightness-110"
+                      }`}
+                      onClick={p.category === "Nutrición" ? (e) => e.preventDefault() : undefined}
                     >
-                      Comprar
+                      {p.category === "Nutrición" ? "Próximamente" : "Comprar"}
                       <ArrowRight className="h-3 w-3 transition-transform group-hover/btn:translate-x-1" />
                     </a>
                   )}

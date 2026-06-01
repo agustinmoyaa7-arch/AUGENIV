@@ -1,6 +1,8 @@
+"use client"
+
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
-import { buildWhatsAppLink } from "../whatsapp-button"
+import { buildWhatsAppLink } from "@/lib/whatsapp-utils"
 
 export function SobreMi() {
   return (

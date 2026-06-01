@@ -1,5 +1,7 @@
+"use client"
+
 import { Check, ArrowRight } from "lucide-react"
-import { buildWhatsAppLink } from "../whatsapp-button"
+import { buildWhatsAppLink } from "@/lib/whatsapp-utils"
 
 type Plan = {
   id: string

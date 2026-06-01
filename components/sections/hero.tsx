@@ -1,7 +1,9 @@
+"use client"
+
 import Image from "next/image"
 import { ArrowRight, Zap, Quote } from "lucide-react"
 import { DragonflyLogo } from "../dragonfly-logo"
-import { buildWhatsAppLink } from "../whatsapp-button"
+import { buildWhatsAppLink } from "@/lib/whatsapp-utils"
 
 export function Hero() {
   return (

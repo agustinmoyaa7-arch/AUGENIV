@@ -108,92 +108,37 @@ export function Testimonios() {
   return (
     <section className="relative bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
+
+        {/* Coming Soon Banner */}
+        <div className="mb-12 rounded-3xl border-2 border-[color:var(--brand-crimson)]/40 bg-gradient-to-br from-[color:var(--brand-crimson)]/10 to-[color:var(--brand-crimson)]/5 p-16 text-center">
+          <p className="text-[10px] tracking-[0.4em] text-[color:var(--brand-crimson)] uppercase font-semibold">
+            Nuevos contenidos
+          </p>
+          <h2 className="mt-4 font-display text-5xl sm:text-6xl font-black tracking-tight text-foreground">
+            PRÓXIMAMENTE
+          </h2>
+          <p className="mt-6 max-w-2xl mx-auto font-serif text-base sm:text-lg leading-relaxed text-muted-foreground">
+            Estamos preparando testimonios en video de nuestros clientes compartiendo sus historias de transformación. ¡Muy pronto podrás conocer sus logros en primera persona!
+          </p>
+          <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-[color:var(--brand-crimson)]/40 bg-[color:var(--brand-crimson)]/5 px-4 py-2">
+            <span className="h-2 w-2 rounded-full bg-[color:var(--brand-crimson)] animate-pulse" />
+            <span className="text-xs tracking-[0.2em] text-[color:var(--brand-crimson)] uppercase font-semibold">En desarrollo</span>
+          </div>
+        </div>
+
+        {/* Original Testimonios Header (optional - can be hidden or shown) */}
         <div className="mb-12 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div>
             <p className="mb-4 font-sans text-[10px] tracking-[0.4em] text-muted-foreground uppercase">
               <span className="mr-3 inline-block h-px w-8 align-middle bg-[color:var(--brand-crimson)]" />
               Resultados Reales
             </p>
-            <h2 className="font-display text-4xl leading-[0.95] sm:text-6xl">
+            <h3 className="font-display text-4xl leading-[0.95] sm:text-5xl">
               <span className="text-[color:var(--brand-crimson)]">TESTIMONIOS</span>
-            </h2>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={() => goTo(index - 1)}
-              aria-label="Testimonio anterior"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition hover:bg-[color:var(--brand-crimson)] hover:text-white hover:border-[color:var(--brand-crimson)]"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              type="button"
-              onClick={() => goTo(index + 1)}
-              aria-label="Siguiente testimonio"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition hover:bg-[color:var(--brand-crimson)] hover:text-white hover:border-[color:var(--brand-crimson)]"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
+            </h3>
           </div>
         </div>
 
-        <div
-          ref={trackRef}
-          className="scrollbar-hide -mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-4 sm:-mx-10 sm:px-10"
-        >
-          {ITEMS.map((t) => (
-            <article
-              key={t.name}
-              className="group relative flex w-[88vw] max-w-[460px] shrink-0 snap-start flex-col rounded-3xl border border-border bg-card/60 p-6 backdrop-blur-md sm:w-[420px] sm:p-7"
-            >
-              {/* Video at top */}
-              <VideoPlayer src={t.videoSrc} poster={t.poster} />
-
-              {/* Quote */}
-              <div className="relative mt-6">
-                <Quote className="absolute -top-1 right-0 h-9 w-9 text-[color:var(--brand-crimson)]/20" />
-                <p className="font-serif text-base italic leading-relaxed text-foreground/90 sm:text-lg">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-              </div>
-
-              {/* Author */}
-              <div className="mt-6 flex items-center gap-4 border-t border-border pt-5">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[color:var(--brand-crimson)] font-display text-base text-white">
-                  {t.initials}
-                </div>
-                <div className="flex-1">
-                  <p className="font-display text-lg leading-none text-foreground">
-                    {t.name}
-                  </p>
-                  <p className="mt-1 font-sans text-[10px] tracking-[0.3em] text-muted-foreground uppercase">
-                    Nivel {t.level}
-                  </p>
-                </div>
-                <span className="rounded-full border border-[color:var(--brand-crimson)]/40 px-2.5 py-1 font-sans text-[9px] font-semibold tracking-[0.2em] text-[color:var(--brand-crimson)] uppercase">
-                  {t.level}
-                </span>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        {/* Dots */}
-        <div className="mt-8 flex items-center justify-center gap-2">
-          {ITEMS.map((_, i) => (
-            <button
-              type="button"
-              key={i}
-              onClick={() => goTo(i)}
-              aria-label={`Ir al testimonio ${i + 1}`}
-              className={`h-1.5 rounded-full transition-all ${
-                i === index ? "w-8 bg-[color:var(--brand-crimson)]" : "w-1.5 bg-foreground/20"
-              }`}
-            />
-          ))}
-        </div>
       </div>
     </section>
   )

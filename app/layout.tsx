@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { LoadingScreen } from "@/components/loading-screen"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { BottomNav } from "@/components/bottom-nav"
-import { WhatsAppButton } from "@/components/whatsapp-button"
+import { WhatsAppButton ,AugenivBot } from "@/components/whatsapp-button"
 
 const bebas = Bebas_Neue({
   subsets: ["latin"],
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   title: "AUGENIV — Asesoramiento Gym | Calma mental. Fuerza real.",
   description:
     "Coaching de hipertrofia 100% personalizado con Angel Ortiz. Planes, seguimiento real y app personalizada. Disciplina hoy. Resultados siempre.",
-  generator: "v0.app",
+  generator: "New Wave Desarrollo Digital",
   keywords: [
     "AUGENIV",
     "Asesoramiento Gym",
@@ -85,15 +85,16 @@ export default function RootLayout({
       className={`${bebas.variable} ${dmSans.variable} ${lora.variable} dark`}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} suppressHydrationWarning />
       </head>
+
       <body className="font-sans antialiased bg-background text-foreground">
         <ThemeProvider>
-        
+
             <LoadingScreen />
-          
+
           <ThemeToggle />
           {children}
+          <AugenivBot />
           <WhatsAppButton />
           <BottomNav />
           <div className="h-28" aria-hidden />
